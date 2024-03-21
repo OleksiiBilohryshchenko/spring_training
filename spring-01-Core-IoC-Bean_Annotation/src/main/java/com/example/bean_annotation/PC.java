@@ -1,4 +1,4 @@
-package com.example.bean_annotation.motherboardfactory;
+package com.example.bean_annotation;
 
 import com.example.bean_annotation.casefactory.Case;
 import com.example.bean_annotation.monitorfactory.Monitor;
