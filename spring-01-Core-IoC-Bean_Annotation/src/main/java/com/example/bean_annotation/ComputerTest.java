@@ -26,15 +26,15 @@ public class ComputerTest {
 
         System.out.println("************Retrieving the beans******************");
 
-        SonyMonitor sony = container.getBean(SonyMonitor.class);
-        DellCase dell = container.getBean(DellCase.class);
-        AsusMotherboard asus = container.getBean(AsusMotherboard.class);
-
-        PC myPc = new PC(dell,sony,asus);
-
-        myPc.powerUp();
-
-        dell.pressPowerButton();
+//        SonyMonitor sony = container.getBean(SonyMonitor.class);
+//        DellCase dell = container.getBean(DellCase.class);
+//        AsusMotherboard asus = container.getBean(AsusMotherboard.class);
+//
+//        PC myPc = new PC(dell,sony,asus);
+//
+//        myPc.powerUp();
+//
+//        dell.pressPowerButton();
 
         System.out.println("************Retrieving the beans******************");
 
