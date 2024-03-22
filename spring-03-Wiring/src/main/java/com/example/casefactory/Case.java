@@ -1,5 +1,10 @@
 package com.example.casefactory;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class Case {
     private String model;
     private String manufacturer;
