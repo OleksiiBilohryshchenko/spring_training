@@ -13,7 +13,7 @@ public class PcConfig {
         return new Dimensions(50,10,10);
     }
     @Bean
-    public Case caseDell(Dimensions dimensions){
+    public Case caseDell(Dimensions dimensions){  // parameter call wiring
 
         return new DellCase("220B","Dell","240",dimensions);
     }
