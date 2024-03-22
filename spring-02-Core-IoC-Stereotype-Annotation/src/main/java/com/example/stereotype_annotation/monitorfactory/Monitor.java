@@ -1,5 +1,10 @@
 package com.example.stereotype_annotation.monitorfactory;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class Monitor {
 
     private String model;
@@ -14,4 +19,3 @@ public abstract class Monitor {
 
     public abstract void drawPixelAt();
 }
-

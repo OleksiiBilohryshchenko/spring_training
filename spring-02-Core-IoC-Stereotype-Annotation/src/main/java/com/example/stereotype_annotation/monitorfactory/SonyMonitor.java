@@ -1,17 +1,14 @@
 package com.example.stereotype_annotation.monitorfactory;
 
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Getter
-@Setter
 @Component
-public class SonyMonitor extends Monitor {
+@Primary
+public class SonyMonitor extends Monitor{
 
-    public SonyMonitor(String model, String manufacturer, int size) {
-
-        super(model, manufacturer, size);
+    public SonyMonitor() {
+        super("25 inch beast","Sony",25);
     }
 
     public void drawPixelAt() {
