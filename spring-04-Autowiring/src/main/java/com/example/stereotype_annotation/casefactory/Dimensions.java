@@ -15,6 +15,12 @@ public class Dimensions {
     private int height;
     private int depth;
 
+    public Dimensions() {
+        this.width=10;
+        this.height=30;
+        this.depth=40;
+    }
+
     public void pressPowerButton(){
         System.out.println("Press button is pressed");
     }
