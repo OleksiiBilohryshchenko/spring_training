@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,22 +16,22 @@
     </thead>
     <tbody>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td th:text="${mentors.get(0).firstName}"></td>
+        <td th:text="${mentors.get(0).lastName}"></td>
+        <td th:text="${mentors.get(0).age}"></td>
+        <td th:text="${mentors.get(0).getGender()}"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td th:text="${mentors.get(1).firstName}"></td>
+        <td th:text="${mentors.get(1).lastName}"></td>
+        <td th:text="${mentors.get(1).age}"></td>
+        <td th:text="${mentors.get(1).getGender()}"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td th:text="${mentors.get(2).firstName}"></td>
+        <td th:text="${mentors.get(2).lastName}"></td>
+        <td th:text="${mentors.get(2).age}"></td>
+        <td th:text="${mentors.get(2).getGender()}"></td>
     </tr>
     </tbody>
 </table>
