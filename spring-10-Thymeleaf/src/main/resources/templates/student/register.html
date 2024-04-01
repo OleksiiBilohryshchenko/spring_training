@@ -49,5 +49,26 @@
     </ul>
 </h2>
 
+
+<h2>Printing Students in table</h2>
+<table>
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>Gender</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student:${students}">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.state}"></td>
+    </tr>
+
+</table>
+
 </body>
 </html>
