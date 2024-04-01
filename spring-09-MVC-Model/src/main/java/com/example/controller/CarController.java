@@ -2,6 +2,7 @@ package com.example.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,5 +36,15 @@ public class CarController {
 
         return "car/car-info";
     }
+
+    // localhost:8080/info/Acura/2015
+    @RequestMapping("/info/{make}/{year}")
+    public String getCarInfo(@PathVariable String make, @PathVariable int year){
+        System.out.println(make);
+        System.out.println(year);
+        // Acura
+        return "car/car-info";
+    }
+
 
 }
