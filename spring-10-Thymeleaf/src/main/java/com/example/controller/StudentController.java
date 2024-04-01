@@ -17,5 +17,12 @@ public class StudentController {
         return "student/register";
     }
 
+    //localhost:8080/student/welcome
+    @RequestMapping("/welcome")
+    public String welcome(){
+
+        return "student/welcome";
+    }
+
 
 }
