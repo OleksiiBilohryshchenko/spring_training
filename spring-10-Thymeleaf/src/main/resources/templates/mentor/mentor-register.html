@@ -11,11 +11,29 @@
 <form th:object="${mentor}">
 
   <label>First name:</label>
-  <input type="text" th:field="*{firstName}">
-  <br>
+  <input type="text" th:field="*{firstName}"><br>
+  
   <label>Last name:</label>
-  <input type="text" th:field="*{lastName}">
-  <br>
+  <input type="text" th:field="*{lastName}"><br>
+  
+  <label>Email:</label>
+  <input type="email" th:field="*{email}"><br>
+  
+  <label>Graduated:</label>
+  <input type="checkbox" th:field="*{graduated}"><br>
+  
+  <label>Gender:</label>
+  <input type="radio" th:value="Male" th:field="*{gender}">Male
+  <input type="radio" th:value="Female" th:field="*{gender}">Female<br>
+
+    <label>Batch Number:</label>
+    <select th:field="*{batch}">
+        <option th:each="theBatch:${batchList}"th:value="${theBatch}"th:text="${theBatch}"></option>
+    </select><br>
+  <label>Company:</label>
+  <textarea th:field="*{company}"></textarea><br>
+  <button type="summit">Register</button>
+
 
 </form>
 
