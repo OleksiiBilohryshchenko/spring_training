@@ -1,5 +1,6 @@
 package com.example.bootstrap;
 
+import com.example.entity.Merchant;
 import com.example.entity.Payment;
 import com.example.entity.PaymentDetail;
 import com.example.enums.Status;
@@ -31,6 +32,11 @@ public class DataGenerator implements CommandLineRunner {
         PaymentDetail paymentDetail2 = new PaymentDetail(new BigDecimal("90000"),new BigDecimal("5000"),LocalDate.of(2022,4,29));
 
         payment2.setPaymentDetail(paymentDetail2);
+
+        Merchant merchant1 = new Merchant("AmazonSubMerchant","M123",new BigDecimal("0.25"),new BigDecimal("3.25"),5);
+
+        payment1.setMerchant(merchant1);
+        payment2.setMerchant(merchant1);
 
         paymentRepository.save(payment1);
         paymentRepository.save(payment2);
