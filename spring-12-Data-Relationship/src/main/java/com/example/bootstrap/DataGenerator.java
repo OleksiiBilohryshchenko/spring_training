@@ -2,6 +2,8 @@ package com.example.bootstrap;
 
 import com.example.entity.*;
 import com.example.enums.Status;
+import com.example.repository.CartRepository;
+import com.example.repository.ItemRepository;
 import com.example.repository.MerchantRepository;
 import com.example.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +18,14 @@ public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
+    private final ItemRepository itemRepository;
+    private final CartRepository cartRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, ItemRepository itemRepository, CartRepository cartRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
+        this.itemRepository = itemRepository;
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -49,6 +55,14 @@ public class DataGenerator implements CommandLineRunner {
 
         cart1.setItemList(Arrays.asList(item1,item2,item3));
         cart2.setItemList(Arrays.asList(item1,item2));
+
+        itemRepository.save(item1);
+        itemRepository.save(item2);
+        itemRepository.save(item3);
+
+        cartRepository.save(cart1);
+        cartRepository.save(cart2);
+
 
         merchantRepository.save(merchant1);
 
