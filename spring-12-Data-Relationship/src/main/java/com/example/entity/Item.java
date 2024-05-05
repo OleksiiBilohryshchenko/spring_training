@@ -19,7 +19,7 @@ public class Item {
     private String name;
     private String code;
 
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany(mappedBy = "itemsList")
     private List<Cart> carts;
 
     public Item(String name, String code) {

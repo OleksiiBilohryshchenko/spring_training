@@ -1,8 +1,6 @@
 package com.example.bootstrap;
 
-import com.example.entity.Merchant;
-import com.example.entity.Payment;
-import com.example.entity.PaymentDetail;
+import com.example.entity.*;
 import com.example.enums.Status;
 import com.example.repository.MerchantRepository;
 import com.example.repository.PaymentRepository;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
@@ -40,6 +39,16 @@ public class DataGenerator implements CommandLineRunner {
 
         payment1.setMerchant(merchant1);
         payment2.setMerchant(merchant1);
+
+        Item item1 = new Item("Milk","M01");
+        Item item2 = new Item("Sugar","S01");
+        Item item3 = new Item("Bread","B01");
+
+        Cart cart1 = new Cart();
+        Cart cart2 = new Cart();
+
+        cart1.setItemList(Arrays.asList(item1,item2,item3));
+        cart2.setItemList(Arrays.asList(item1,item2));
 
         merchantRepository.save(merchant1);
 
