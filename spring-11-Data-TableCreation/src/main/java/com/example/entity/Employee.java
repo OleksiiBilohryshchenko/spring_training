@@ -1,14 +1,26 @@
 package com.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.example.enums.Gender;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Entity
-public class Employee {
+@Table(name = "employees")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Employee extends BaseEntity {
 
-    @Id
-    private int Id;
-    private String name;
+   private String firstName;
+   private String lastName;
+   private String email;
+   @Column(columnDefinition = "DATE")
+   private LocalDate hireDate;
+   @Enumerated(EnumType.STRING)
+   private Gender gender;
+   private int salary;
 
 
 
