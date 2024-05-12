@@ -3,6 +3,7 @@ package com.example.repository;
 import com.example.entity.Account;
 import com.example.enums.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,12 +34,16 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query that returns all accounts
-
+    @Query("SELECT a FROM Account a")
+    List<Account> fetchAllByUsingJPQL();
 
     //Write a JPQL query to list all admin accounts
-
+    @Query("SELECT a FROM Account a WHERE a.role = 'ADMIN'")
+    List<Account> fetchAllAdmins();
 
     //Write a JPQL query to sort all accounts with age
+    @Query("SELECT a FROM Account a ORDER BY a.age DESC")
+    List<Account> fetchAllOrderBasedOnAge();
 
 
     // ------------------- Native QUERIES ------------------- //
