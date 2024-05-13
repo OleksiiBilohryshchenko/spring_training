@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.entity.Employee;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -70,4 +71,19 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query("SELECT e FROM Employee e WHERE e.hireDate > ?1")
     List<Employee> retrieveEmployeeHiredDateBefore(LocalDate date);
 
+    //Null
+    @Query("SELECT e FROM Employee e WHERE e.email IS NULL")
+    List<Employee> retrieveEmployeeEmailNull();
+
+    //Not Null
+    @Query("SELECT e FROM Employee e WHERE e.email IS NOT NULL")
+    List<Employee> retrieveEmployeeEmailNotNull();
+
+    //Sorting in Ascending order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary")
+    List<Employee> retrieveEmployeeSalaryOrderAsc();
+
+    //Sorting in Descending order
+    @Query("SELECT e FROM Employee e ORDER BY e.salary DESC")
+    List<Employee> retrieveEmployeeSalaryOrderDsc();
 }
