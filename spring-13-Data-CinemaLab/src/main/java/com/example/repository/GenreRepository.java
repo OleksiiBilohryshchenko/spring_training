@@ -20,6 +20,6 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
 
     //Write a native query that returns genres by containing name
     @Query(value = "SELECT * FROM genre WHERE name ILIKE concat('%',?1,'%')",nativeQuery = true)
-    List<Genre> retreiveByName(String name);
+    List<Genre> retrieveByName(String name);
 
 }
