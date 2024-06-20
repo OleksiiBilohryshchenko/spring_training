@@ -2,9 +2,7 @@ package com.example.controller;
 
 import com.example.dto.CourseDTO;
 import com.example.service.CourseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +18,23 @@ public class CourseController {
 
     @GetMapping
     public List<CourseDTO> getAllCourses(){
-
         return courseService.getCourses();
-
     }
+
+    @GetMapping("{id}")
+    public CourseDTO getCourseById(@PathVariable("id") long courseId){
+        return courseService.getCourseById(courseId);
+    }
+
+    @GetMapping("category/{name}")
+    public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category){
+        return courseService.getCoursesByCategory(category);
+    }
+
+    @PostMapping
+    public CourseDTO createCourse(@RequestBody CourseDTO course){
+        return courseService.createCourse(course);
+    }
+
 
 }
