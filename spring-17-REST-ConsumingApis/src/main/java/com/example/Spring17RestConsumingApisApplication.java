@@ -1,5 +1,6 @@
 package com.example;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -15,8 +16,13 @@ public class Spring17RestConsumingApisApplication {
     }
 
     @Bean
-    public RestTemplate restTemplate(){
-        return  new RestTemplate();
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 
+    @Bean
+    public ModelMapper mapper() {
+        return new ModelMapper();
+
+    }
 }
