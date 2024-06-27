@@ -1,11 +1,16 @@
 package com.example.controller;
 
+import com.example.dto.GenreDTO;
 import com.example.dto.MovieCinemaDTO;
 import com.example.service.GenreService;
 import com.example.service.MovieCinemaService;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public class Consume_WebClient {
 
@@ -26,4 +31,62 @@ public class Consume_WebClient {
 
     }
 
+    //    @GetMapping("/mono-movie-cinema/{id}")
+//    public Mono<MovieCinemaDTO> readById(@PathVariable("id") Long id){
+//
+//        return Mono.just(movieCinemaService.findById(id));
+//
+//    }
+
+    @GetMapping("/mono-movie-cinema/{id}")
+    public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){
+
+        return ResponseEntity.ok(Mono.just(movieCinemaService.findById(id)));
+
+    }
+
+    @PostMapping("/create-genre")
+    public Mono<GenreDTO> createGenre(@RequestBody GenreDTO genre){
+
+        GenreDTO createdGenre = genreService.save(genre);
+
+        return Mono.just(createdGenre);
+//        return Mono.just(genreRepository.save(genre));
+
+    }
+
+    @DeleteMapping("/delete/genre/{id}")
+    public Mono<Void> deleteGenre(@PathVariable("id") Long id){
+
+        genreService.deleteById(id);
+
+        return Mono.empty();
+    }
+
+//    ---------------------------WEBCLIENT---------------------------
+
+    @GetMapping("/flux")
+    public Flux<MovieCinemaDTO> readWithWebClient(){
+
+        return webClient
+                .get()
+                .uri("/flux-movie-cinemas")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .bodyToFlux(MovieCinemaDTO.class);
+
+    }
+
+    @GetMapping("/mono/{id}")
+    public Mono<MovieCinemaDTO> readMonoWithWebClient(@PathVariable("id") Long id){
+
+        return webClient
+                .get()
+                .uri("/mono-movie-cinema/{id}",id)
+                .retrieve()
+                .bodyToMono(MovieCinemaDTO.class);
+
+    }
+
 }
+
