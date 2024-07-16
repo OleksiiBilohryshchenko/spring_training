@@ -1,12 +1,20 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.nio.file.AccessDeniedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
+
+    @BeforeAll
+    static void setUpAll(){
+        System.out.println("Before all is executed");
+    }
+
+    @AfterAll
+    static void tearDownAll(){
+        System.out.println("After all is executed");
+    }
 
     @BeforeEach
     void setUpEach(){
