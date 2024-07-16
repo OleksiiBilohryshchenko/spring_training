@@ -47,6 +47,13 @@ class CalculatorTest {
     void testCase5(){
         System.out.println("Test Case 5");
 
+        Calculator c1 = new Calculator();
+        Calculator c2 = c1;
+        Calculator c3 = new Calculator();
+
+        assertSame(c1,c2);
+        assertNotSame(c1,c3);
+
     }
 
 
