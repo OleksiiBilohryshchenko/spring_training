@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.AccessDeniedException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -9,6 +11,14 @@ class CalculatorTest {
         System.out.println("Add method");
         int actual = Calculator.add(2,3);
         assertEquals(5, actual, "Test failed");
+    }
+
+    @Test
+    void add2(){
+        System.out.println("Add2 method");
+//        assertThrows(IllegalArgumentException.class, () -> Calculator.add2(3,2));
+//        assertThrows(AccessDeniedException.class, () -> Calculator.add2(3,2));
+        assertThrows(IllegalArgumentException.class, () -> Calculator.add2(2,3));
     }
 
     @Test
