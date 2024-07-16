@@ -18,16 +18,36 @@ class CalculatorTest {
     }
 
     @Test
-    void testCase2(){System.out.println("Test Case 2");}
+    void testCase2(){
+        System.out.println("Test Case 2");
+        assertTrue(Calculator.operator.equals("add"));
+        assertEquals("add", Calculator.operator);
+    }
 
     @Test
-    void testCase3(){System.out.println("Test Case 3");}
+    void testCase3(){
+        System.out.println("Test Case 3");
+        assertArrayEquals(new int[]{1,2,3}, new int[]{1,2,3}, "Arrays are not the same");
+    }
 
     @Test
-    void testCase4(){System.out.println("Test Case 4");}
+    void testCase4(){
+        System.out.println("Test Case 4");
+        String nullString = null;
+        String notNullString = "Word";
+
+        assertNull(nullString);
+        assertNotNull(notNullString);
+
+        assertNull(notNullString);
+        assertNotNull(nullString);
+    }
 
     @Test
-    void testCase5(){System.out.println("Test Case 5");}
+    void testCase5(){
+        System.out.println("Test Case 5");
+
+    }
 
 
 }
