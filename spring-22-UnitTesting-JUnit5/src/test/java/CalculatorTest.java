@@ -87,5 +87,6 @@ class CalculatorTest {
 
     }
 
+    // maven-surefire-plugin
 
 }
