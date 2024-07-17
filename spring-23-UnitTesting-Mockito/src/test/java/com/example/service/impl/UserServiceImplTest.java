@@ -33,7 +33,7 @@ class UserServiceImplTest {
         // checking if this method is run or not
         verify(userRepository).findByUserNameAndIsDeleted("harold@manager.com",false);
 
-        verify(userRepository,times(2)).findByUserNameAndIsDeleted("harold@manager.com",false);
+        verify(userRepository,times(1)).findByUserNameAndIsDeleted("harold@manager.com",false);
 
     }
 
