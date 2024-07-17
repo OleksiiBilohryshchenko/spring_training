@@ -35,6 +35,14 @@ class UserServiceImplTest {
 
         verify(userRepository,times(1)).findByUserNameAndIsDeleted("harold@manager.com",false);
 
+        verify(userRepository,atLeastOnce()).findByUserNameAndIsDeleted("harold@manager.com",false);
+
+        verify(userRepository,atLeast(1)).findByUserNameAndIsDeleted("harold@manager.com",false);
+
+        //can be 0 or 1 as example
+        verify(userRepository,atMostOnce()).findByUserNameAndIsDeleted("harold@manager.com",false);
+
+        verify(userRepository, atMost(10)).findByUserNameAndIsDeleted("harold@manager.com",false);
     }
 
 
