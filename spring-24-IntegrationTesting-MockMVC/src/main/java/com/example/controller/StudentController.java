@@ -22,7 +22,7 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<StudentDTO> getStudent_Service() {
+    public List<StudentDTO> getStudents() {
         return studentService.getStudents();
     }
 
